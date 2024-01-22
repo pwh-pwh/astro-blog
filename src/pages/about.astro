@@ -6,14 +6,10 @@ const identity = {
     firstName: "coderpwh",
     country: "china",
     occupation: "coder",
-    hobbies: ["coder","photography"]
+    hobbies: ["coder","cycling","mountain climbing","reading books","american tv"]
 };
 
 const skills = ["rust","kotlin","go","java","typescript"];
-
-const happy = true;
-const finished = true;
-const goal = 3;
 
 
 const skillColor = "navy";
@@ -50,11 +46,5 @@ const textCase = "uppercase";
     <ul>
         {skills.map((skill) => <li class="skill">{skill}</li>)}
     </ul>
-
-    {happy && <p>I am happy to be learning Astro!</p>}
-
-    {finished && <p>I finished this tutorial!</p>}
-
-    {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
 </BaseLayout>
 
