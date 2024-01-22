@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import {type MarkdownInstance} from "astro";
 
 export async function getStaticPaths() {
-    const allPosts = await Astro.glob('../posts/*.md');
+    const allPosts:MarkdownInstance<Record<string, any>>[] = await Astro.glob('../posts/*.md');
     return [
         { params: { tag: "astro" },props:{posts: allPosts} },
         { params: { tag: "successes" },props:{posts: allPosts} },
