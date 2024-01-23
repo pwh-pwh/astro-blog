@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Greeting from "../components/Greeting";
-const pageTitle = "Home Page";
+import Zen from "../components/Zen";
+const pageTitle = "coderpwh blog";
 ---
 <BaseLayout pageTitle={pageTitle}>
 	<h2>Welcome to my blog!</h2>
-	<Greeting client:load messages={["Hi","Hello","Howdy","Hey there"]}/>
+	<!--<Greeting client:load messages={["Hi","Hello","Howdy","Hey there"]}/>-->
+	<Zen client:load />
 </BaseLayout>
