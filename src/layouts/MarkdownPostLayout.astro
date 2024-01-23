@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import Comment from '../components/Comment.astro';
 import { fade } from "astro:transitions";
 const { frontmatter } = Astro.props;
 ---
@@ -17,6 +18,7 @@ const { frontmatter } = Astro.props;
     </div>
 
     <slot />
+    <Comment />
 </BaseLayout>
 <style>
     a {
