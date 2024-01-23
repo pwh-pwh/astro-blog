@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Comment from "../components/Comment.astro";
 const pageTitle = "About Me"
 const identity = {
     firstName: "coderpwh",
@@ -46,5 +47,6 @@ const textCase = "uppercase";
     <ul>
         {skills.map((skill) => <li class="skill">{skill}</li>)}
     </ul>
+    <Comment />
 </BaseLayout>
 
