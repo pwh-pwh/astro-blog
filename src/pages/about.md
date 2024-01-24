@@ -15,7 +15,7 @@ Here are a few facts about me.
 
 ## Hobbies
 
-This theme is written in vanilla JavaScript (+ TypeScript for type checking) and a little bit of ReactJS for some interactions. TailwindCSS is used for styling; and Markdown is used for blog contents.
+I like to think, read, ride, and climb mountains. I like to write code when I’m bored, and I like to explore new things, such as web3.
 
 ## Skills
 
