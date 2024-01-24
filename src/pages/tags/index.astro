@@ -1,34 +1,24 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import {type MarkdownInstance} from "astro";
-const pageTitle = "Tag Index";
-const allPosts = await getCollection("posts");
-const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Layout from "@layouts/Layout.astro";
+import Main from "@layouts/Main.astro";
+import Tag from "@components/Tag.astro";
+import getUniqueTags from "@utils/getUniqueTags";
+import { SITE } from "@config";
+
+const posts = await getCollection("blog");
+
+let tags = getUniqueTags(posts);
 ---
-<BaseLayout pageTitle={pageTitle}>
-    <div class="tags">
-        {tags.map((tag) => (
-                <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
-        ))}
-    </div>
-    <style>
-        a {
-            color: #00539F;
-        }
 
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            margin: 0.25em;
-            border: dotted 1px #a1a1a1;
-            border-radius: .5em;
-            padding: .5em 1em;
-            font-size: 1.15em;
-            background-color: #F8FCFD;
-        }
-    </style>
-</BaseLayout>
+<Layout title={`Tags | ${SITE.title}`}>
+  <Header activeNav="tags" />
+  <Main pageTitle="Tags" pageDesc="All the tags used in posts.">
+    <ul>
+      {tags.map(({ tag }) => <Tag {tag} size="lg" />)}
+    </ul>
+  </Main>
+  <Footer />
+</Layout>
