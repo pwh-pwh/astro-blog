@@ -17,5 +17,48 @@ const repodId = import.meta.env.PUBLIC_GISCUS_REPO_ID;
   data-theme="preferred_color_scheme"
   data-lang="en"
   crossorigin="anonymous"
-  async
-></script>
+  async></script>
+
+<script>
+  // purple_dark noborder_light
+  function getCurrentTheme(): string {
+    let themeBtn = document.querySelector("#theme-btn");
+    return themeBtn!!.getAttribute("aria-label")!!;
+  }
+
+  function getTheme(flag: boolean) {
+    let currentTheme = getCurrentTheme();
+    if (
+      (currentTheme == "light" && flag) ||
+      (currentTheme == "dark" && !flag)
+    ) {
+      return "noborder_light";
+    } else {
+      return "dark_tritanopia";
+    }
+  }
+
+  function setIFrameTheme(flag: boolean) {
+    const iframe = document.querySelector(
+      "iframe.giscus-frame"
+    ) as HTMLIFrameElement;
+    iframe.contentWindow!!.postMessage(
+      {
+        giscus: {
+          setConfig: {
+            theme: getTheme(flag),
+          },
+        },
+      },
+      "https://giscus.app"
+    );
+  }
+
+  let themeBtn = document.querySelector("#theme-btn") as HTMLButtonElement;
+  themeBtn.onclick = event => {
+    setIFrameTheme(false);
+  };
+
+  await new Promise(resolve => setTimeout(resolve, 1500));
+  setIFrameTheme(true);
+</script>
