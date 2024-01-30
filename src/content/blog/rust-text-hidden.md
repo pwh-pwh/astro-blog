@@ -29,8 +29,6 @@ description: rust实现文本隐写细节及要点
 
 ### 简单demo
 
-Contents are now fetched with `getCollection` function. No relative path to the content needs to be specified anymore.
-
 ```rust
 fn main() {
   //加密方法
