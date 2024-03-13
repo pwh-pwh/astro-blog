@@ -31,10 +31,10 @@ export const SOCIALS: SocialObjects = [
     active: true,
   },
   {
-    name: "Facebook",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: `${SITE.title} on Facebook`,
-    active: false,
+    name: "Bilibili",
+    href: "https://space.bilibili.com/437966767",
+    linkTitle: `${SITE.title} on Bilibili`,
+    active: true,
   },
   {
     name: "Instagram",
