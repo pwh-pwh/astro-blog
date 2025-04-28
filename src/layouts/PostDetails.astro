@@ -8,6 +8,7 @@ import Datetime from "@/components/Datetime.astro";
 import EditPost from "@/components/EditPost.astro";
 import ShareLinks from "@/components/ShareLinks.astro";
 import BackButton from "@/components/BackButton.astro";
+import Comment from "@/components/Comment.astro";
 import { getPath } from "@/utils/getPath";
 import { slugifyStr } from "@/utils/slugify";
 import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
@@ -160,6 +161,7 @@ const nextPost =
         )
       }
     </div>
+    <Comment />
   </main>
   <Footer />
 </Layout>
