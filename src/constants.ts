@@ -6,20 +6,29 @@ import IconWhatsapp from "@/assets/icons/IconWhatsapp.svg";
 import IconFacebook from "@/assets/icons/IconFacebook.svg";
 import IconTelegram from "@/assets/icons/IconTelegram.svg";
 import IconPinterest from "@/assets/icons/IconPinterest.svg";
+import IconBili from "@/assets/icons/IconBili.svg";
 import { SITE } from "@/config";
 
 export const SOCIALS = [
   {
     name: "Github",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://github.com/pwh-pwh",
     linkTitle: ` ${SITE.title} on Github`,
     icon: IconGitHub,
   },
   {
+    name: "Bilibili",
+    href: "https://space.bilibili.com/437966767",
+    linkTitle: `${SITE.title} on Bilibili`,
+    icon: IconBili,
+    active: true,
+  },
+/*  {
     name: "X",
     href: "https://x.com/username",
     linkTitle: `${SITE.title} on X`,
     icon: IconBrandX,
+    active: false,
   },
   {
     name: "LinkedIn",
@@ -32,7 +41,7 @@ export const SOCIALS = [
     href: "mailto:yourmail@gmail.com",
     linkTitle: `Send an email to ${SITE.title}`,
     icon: IconMail,
-  },
+  },*/
 ] as const;
 
 export const SHARE_LINKS = [
