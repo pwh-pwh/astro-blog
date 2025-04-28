@@ -2,6 +2,7 @@
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
+import Comment from "@/components/Comment.astro";
 import Layout from "./Layout.astro";
 import { SITE } from "@/config";
 
@@ -22,6 +23,7 @@ const { frontmatter } = Astro.props;
     <section id="about" class="prose mb-28 max-w-3xl prose-img:border-0">
       <h1 class="text-2xl tracking-wider sm:text-3xl">{frontmatter.title}</h1>
       <slot />
+      <Comment/>
     </section>
   </main>
   <Footer />
