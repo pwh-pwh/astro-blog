@@ -4,21 +4,43 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 :root,
-html[data-theme="light"] {
+/*html[data-theme="light"] {
   --background: #fdfdfd;
   --foreground: #282728;
   --accent: #006cac;
   --muted: #e6e6e6;
   --border: #ece9e9;
+}*/
+html[data-theme="light"] {
+  --background: #faf6ff;        /* 淡淡的薰衣草紫白，柔和背景 */
+  --foreground: #2e213e;        /* 深紫灰文字，优雅可读性好 */
+  --accent: #a855f7;            /* 电光紫主色调（按钮、链接） */
+  --muted: #f1eafa;             /* 辅助区域背景，例如卡片 */
+  --border: #d9c4ec;            /* 柔和淡紫边框 */
 }
 
-html[data-theme="dark"] {
+
+
+/*html[data-theme="dark"] {
   --background: #212737;
   --foreground: #eaedf3;
   --accent: #ff6b01;
   --muted: #343f60bf;
   --border: #ab4b08;
+}*/
+html[data-theme="dark"] {
+  --background: #0e091a;        /* 深紫黑，像宇宙深处 */
+  --foreground: #eae4ff;        /* 柔和的浅紫白文字 */
+  --accent: #c084fc;            /* 亮紫，按钮/链接重点色 */
+  --muted: #1e132f;             /* 降调背景区，如卡片、侧栏 */
+  --border: #a855f7;            /* 电光紫边框 */
+  --glow: 0 0 6px #a855f788;    /* 发光边框或 hover 效果 */
 }
+
+
+
+
+
 
 @theme inline {
   --color-background: var(--background);
