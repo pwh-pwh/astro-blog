@@ -22,7 +22,7 @@ description:
 
 刚开始尝试了kotlin的客户端，看着支持dsl挺好的，
 
-结果使用了很多bug，看了下github很久之前就有这个issue了，好像很久没维护了，遂弃坑。
+结果使用发现很多bug，看了下github很久之前就有这个issue了，好像很久没维护了，遂弃坑。
 
 后面就看到了go的客户端，然后就有个这篇文章
 。本篇记录下golang的move sdk的使用，并解题move ctf
