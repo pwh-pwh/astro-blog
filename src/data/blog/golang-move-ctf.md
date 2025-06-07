@@ -13,7 +13,17 @@ description:
   使用go语言入门move sdk 并解题move ctf
 ---
 
-最近在学sui的move合约，入门了move,尝试了golang 的 move sdk，本篇记录下golang的move sdk的使用，并解题move ctf
+最近在学sui的move合约，入门了move,后面看到有个move ctf的共学的活动。想着对ctf没咋接触过就尝试着入坑。
+
+
+看了一下sui的官网文档，支持rust,ts,kotlin,go,py等客户端，本人对ts不是很感冒(菜就多练)。
+
+刚开始尝试了kotlin的客户端，看着支持dsl挺好的，
+
+结果使用了很多bug，看了下github很久之前就有这个issue了，好像很久没维护了，遂弃坑。
+
+后面就看到了go的客户端，然后就有个这篇文章
+。本篇记录下golang的move sdk的使用，并解题move ctf
 
 ## Table of contents
 
