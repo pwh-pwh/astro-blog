@@ -8,7 +8,9 @@ featured: true
 draft: false
 hideEditPost: false
 tags:
-  - docs
+  - Move
+  - CTF
+  - golang
 description:
   使用go语言入门move sdk 并解题move ctf
 ---
