@@ -109,9 +109,9 @@ func GetAddressHexBytes(address string) [32]byte {
 首先比较重要的就是如何导入现有的账户进行操作，这个模块支持从助记词导入账户
 
 ```go
-
+func main() { 
     signerAccount, _ := signer.NewSignertWithMnemonic("your mnemonic")
-
+}
 ```
 
 是不是很简单，此外还支持从seed导入，大家可以自行探索
@@ -121,8 +121,8 @@ func GetAddressHexBytes(address string) [32]byte {
 ```go
 
 func main() { 
-objId := "your obj id"
-ctx := context.Background()
+    objId := "your obj id"
+    ctx := context.Background()
 	cli := sui.NewSuiClient(constant.SuiTestnetEndpoint)
 	object, err := cli.SuiGetObject(ctx, models.SuiGetObjectRequest{
 		ObjectId: objId,
@@ -142,3 +142,75 @@ ctx := context.Background()
 ```
 
 上面的代码获取链上对象信息并打印
+
+## ctf题解
+
+### 简单签到挑战
+
+move合约代码如下:
+
+```move
+module chapter_1::check_in {
+    use std::string::{Self, String};
+    use std::bcs;
+    use std::hash::sha3_256;
+    use sui::event;
+
+    //testnet
+    //PackageID:0x335297860a807291254b20f8a0dea30d72d5e17d2e6f8058e42d5b9c72f0f0ef
+    public struct FlagEvent has copy, drop {
+        sender: address,
+        flag: String,
+        success: bool
+    }
+
+    public entry fun get_flag(
+        flag: vector<u8>,
+        github_id: String,
+        ctx: &mut TxContext
+    ) {
+        let mut bcs_input = bcs::to_bytes(&string::utf8(b"LetsMoveCTF"));
+        vector::append<u8>(&mut bcs_input, *github_id.as_bytes());
+        let expected_hash = sha3_256(bcs_input);
+
+        if (flag == expected_hash) {
+            event::emit(FlagEvent {
+                sender: tx_context::sender(ctx),
+                flag: string::utf8(b"CTF{WelcomeToMoveCTF}"),
+                success: true
+            });
+        } else {
+            event::emit(FlagEvent {
+                sender: tx_context::sender(ctx),
+                flag: string::utf8(b"Try again!"),
+                success: false
+            });
+        }
+    }
+}
+```
+
+这里获取flag的思路非常简单，LetsMoveCTF进行bcs序列化拼接上github ID 然后再进行sha3_256哈希即可解题
+
+获取flag的代码如下:
+
+```go
+func BuildFlag(name string) []byte {
+	bytes := []byte(name)
+	marshal, err := mystenbcs.Marshal("LetsMoveCTF")
+	fmt.Printf("%v\n", marshal)
+	if err != nil {
+		panic(err)
+	}
+	result := []byte{}
+	result = append(result, marshal...)
+	result = append(result, bytes...)
+	fmt.Printf("Flag bytes: %v\n", result)
+	digest := sha3.Sum256(result)
+	return digest[:]
+}
+```
+
+## 未完待续...
+
+
